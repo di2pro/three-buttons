@@ -28,6 +28,7 @@ html, body {
   @media #{$gt-xs} {
     flex-direction: row;
     padding: 31px 27.5px;
+    min-width: 656px;
     width: 100%;
   }
 
@@ -97,6 +98,8 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    flex-grow: 0;
     z-index: 2;
 
     @media #{$gt-xs} {
@@ -122,6 +125,22 @@ html, body {
         width: 155px;
         height: 155px;
       }
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media #{$gt-xs} {
+      padding: 0 58px;
+    }
+
+    @media #{$gt-sm} {
+      max-width: 1116px;
+      margin: auto;
     }
   }
 }
