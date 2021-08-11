@@ -101,6 +101,7 @@ html, body {
     flex-shrink: 0;
     flex-grow: 0;
     z-index: 2;
+    cursor: pointer;
 
     @media #{$gt-xs} {
       width: 116px;
