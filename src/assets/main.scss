@@ -1,3 +1,5 @@
+@import "media-queries";
+
 * {
   box-sizing: border-box;
 }
@@ -13,14 +15,21 @@ html, body {
 
 .button-group {
   position: relative;
-  min-width: 1000px;
   background: linear-gradient(360deg, #00A1DE -26.44%, #9ADBF5 119.62%) #00A1DE;
   border-radius: 12px;
-  padding: 31px 25.5px;
+  padding: 21px 41px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   overflow: hidden;
+  z-index: 1;
+
+  @media #{$gt-xs} {
+    flex-direction: row;
+    padding: 31px 27.5px;
+    width: 100%;
+  }
 
   &::after, &::before {
     content: "";
@@ -29,44 +38,77 @@ html, body {
   }
 
   &::before {
-    width: 239.09px;
-    height: 286.65px;
+    width: 237.58px;
+    height: 268.66px;
     background: linear-gradient(153.28deg, rgba(255, 255, 255, 0.1) 16.28%, rgba(255, 255, 255, 0) 39.57%);
     box-shadow: inset 0px -4px 4px rgba(255, 255, 255, 0.09);
     border-radius: 168.619px;
-    transform: matrix(-0.98, -0.32, 0.21, -0.95, 0, 0);
-    top: -149px;
-    left: -112px;
+
+    transform: matrix(-0.97, -0.3, 0.22, -0.96, 0, 0);
+    top: -143px;
+    left: -148px;
+
+    @media #{$gt-xs} {
+      width: 239.09px;
+      height: 286.65px;
+      top: -149px;
+      left: -90px;
+      transform: matrix(-0.98, -0.32, 0.21, -0.95, 0, 0);
+    }
+
+    @media #{$gt-sm} {
+      top: -149px;
+      left: -112px;
+    }
   }
 
   &::after {
-    width: 235px;
-    height: 290px;
-    right: -80px;
-    bottom: -145px;
+    width: 235.01px;
+    height: 270.91px;
+    right: -127px;
+    bottom: -155px;
     background: linear-gradient(153.28deg, rgba(255, 255, 255, 0.1) 16.28%, rgba(255, 255, 255, 0) 39.57%);
     box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.15);
     border-radius: 168.619px;
+
+    @media #{$gt-xs} {
+      width: 235px;
+      height: 290px;
+      right: -93px;
+      bottom: -145px;
+    }
+
+    @media #{$gt-sm} {
+      right: -80px;
+      bottom: -145px;
+    }
   }
 
   &__btn {
     position: relative;
     background-color: #FFFFFF;
     border-radius: 50%;
-    width: 116px;
-    height: 116px;
+    width: 101.03px;
+    height: 101.03px;
     border: none;
-    margin: 42px;
+    margin: 27.71px;
     box-shadow: 0 4.95939px 14.8782px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 2;
+
+    @media #{$gt-xs} {
+      width: 116px;
+      height: 116px;
+      margin: 42px;
+    }
 
     &--highlighted::after {
       content: "";
-      width: 155px;
-      height: 155px;
+      width: 135px;
+      height: 135px;
       border-radius: 50%;
       display: block;
       position: absolute;
@@ -75,6 +117,11 @@ html, body {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+      @media #{$gt-xs} {
+        width: 155px;
+        height: 155px;
+      }
     }
   }
 }
