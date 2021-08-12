@@ -10,10 +10,11 @@ const gulpPostcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const browserSync = require("browser-sync").create();
+const packageJson = require("./package.json");
 
 const gulpTasks = exports;
 const isProdBuild = process.env.NODE_ENV === "production";
-const destPath = path.resolve(__dirname, "dist");
+const destPath = path.resolve(__dirname, "dist", packageJson.version);
 
 gulpTasks.cleanDest = function cleanDest() {
   return gulp
@@ -39,7 +40,17 @@ gulpTasks.copyPublic = function copyPublic() {
     .pipe(gulp.dest(destPath));
 };
 
-gulpTasks.build = gulp.parallel(gulpTasks.scss, gulpTasks.copyPublic);
+gulpTasks.copyRoot = function copyRoot() {
+  return gulp
+    .src(path.resolve(__dirname, "src", "index.html"))
+    .pipe(gulp.dest(path.join(__dirname, "dist")));
+};
+
+gulpTasks.build = gulp.parallel(
+  gulpTasks.scss,
+  gulpTasks.copyPublic,
+  gulpTasks.copyRoot
+);
 gulpTasks.buildClean = gulp.series(gulpTasks.cleanDest, gulpTasks.build);
 gulpTasks.watch = function watch() {
   return gulp.watch(
@@ -54,7 +65,7 @@ gulpTasks.watch = function watch() {
 gulpTasks.serve = function serve() {
   browserSync.init({
     server: {
-      baseDir: destPath,
+      baseDir: path.join(__dirname, "dist"),
     },
     notify: false,
   });
