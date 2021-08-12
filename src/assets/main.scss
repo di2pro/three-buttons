@@ -42,7 +42,7 @@ html, body {
     width: 237.58px;
     height: 268.66px;
     background: linear-gradient(153.28deg, rgba(255, 255, 255, 0.1) 16.28%, rgba(255, 255, 255, 0) 39.57%);
-    box-shadow: inset 0px -4px 4px rgba(255, 255, 255, 0.09);
+    box-shadow: inset 1px 4px 4px rgba(255, 255, 255, 0.09);
     border-radius: 168.619px;
 
     transform: matrix(-0.97, -0.3, 0.22, -0.96, 0, 0);
@@ -55,11 +55,6 @@ html, body {
       top: -149px;
       left: -90px;
       transform: matrix(-0.98, -0.32, 0.21, -0.95, 0, 0);
-    }
-
-    @media #{$gt-sm} {
-      top: -149px;
-      left: -112px;
     }
   }
 
