@@ -31,6 +31,7 @@ html, body {
     padding: 31px 27.5px;
     min-width: 656px;
     width: 100%;
+    max-width: 794px;
   }
 
   &::after, &::before {
@@ -72,11 +73,6 @@ html, body {
       width: 235px;
       height: 290px;
       right: -93px;
-      bottom: -145px;
-    }
-
-    @media #{$gt-sm} {
-      right: -80px;
       bottom: -145px;
     }
   }
@@ -134,7 +130,6 @@ html, body {
     }
 
     @media #{$gt-sm} {
-      max-width: 910px;
       margin: auto;
     }
   }
